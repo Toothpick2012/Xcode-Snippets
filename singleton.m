@@ -3,14 +3,14 @@
 // 
 // Platform: All
 // Language: Objective-C
+// Completion Shortcut: Singleton
 // Completion Scope: Class Implementation
 
-+ (instancetype)shared<#name#> {
-    static <#class#> *_shared<#name#> = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _shared<#name#> = <#initializer#>;
-    });
-    
-    return _shared<#name#>;
-}
++ (instancetype)shared<#name#> { 
+  static id _sharedInstance = nil; 
+  static dispatch_once_t oncePredicate; 
+  dispatch_once(&oncePredicate, ^{ 
+    _sharedInstance = [[self alloc] init]; 
+  }); 
+  return _sharedInstance; 
+} 
